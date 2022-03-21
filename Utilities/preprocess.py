@@ -130,7 +130,7 @@ def main(argv):
     client = LocalCluster(n_workers=jobNum, threads_per_worker=5)  # IO intensive, more threads
     print('* number of workers:{}, \n* input dir:{}, \n* output dir:{}\n\n'.format(jobNum, inputDir, outputDir))
     #print('* Link to local cluster dashboard: ', client.dashboard_link)
-    for subFolder in ['train']:
+    for subFolder in ['val']:
         fileList = os.listdir(os.path.join(inputDir, subFolder))
         print('* {} images found in {}. Start processing ...'.format(len(fileList), subFolder))
         toDo = dbag.from_sequence(fileList, npartitions=jobNum*30).persist()  # persist the bag in memory

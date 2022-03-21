@@ -1,5 +1,5 @@
 import json, datetime, tqdm
-from Utilities.lossMetric import *
+from BTP.Utilities.lossMetric import *
 """
 The training script
 """
@@ -122,10 +122,10 @@ class MinMaxGame:
         self.valAccLog.reset_states()
         self.valSnRatioLog.reset_states()
 
-        handle = open('I:/Data/log_' + self.now + '.json', 'w')
-        json.dump(self.log, handle)
-        handle = open('I:/Data/val_' + self.now + '.json', 'w')
-        json.dump(self.valLog, handle)
+        # handle = open('I:/Data/log_' + self.now + '.json', 'w')
+        # json.dump(self.log, handle)
+        # handle = open('I:/Data/val_' + self.now + '.json', 'w')
+        # json.dump(self.valLog, handle)
 
     def train(self, trainData, valData, parameters):
         lrGen, lrDis = parameters['lrGenerator'], parameters['lrDiscriminator']
