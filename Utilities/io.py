@@ -5,15 +5,15 @@ Scripts that load images from disk
 
 
 class DataLoader:
-    def __init__(self, scale=4):
+    def __init__(self, scale=8):
         self.scale = scale
 
     def decodeImg(self, path):
         image = tf.io.read_file(path)
         image = tf.image.decode_jpeg(image, channels=3)
         image = tf.image.convert_image_dtype(image, tf.float32)
-        image = tf.image.rgb_to_grayscale(image)
-        image = tf.image.adjust_contrast(image, 0.7)
+        #image = tf.image.rgb_to_grayscale(image)
+        #image = tf.image.adjust_contrast(image, 0.7)
         return image, tf.shape(image)
 
     def processXY(self, path):
